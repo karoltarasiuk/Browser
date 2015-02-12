@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		495C91341A8D626500817E55 /* StretchableUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C91331A8D626500817E55 /* StretchableUITextField.swift */; };
 		9F7ED40B1A8D5C2D006C6B70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7ED40A1A8D5C2D006C6B70 /* AppDelegate.swift */; };
 		9F7ED40D1A8D5C2D006C6B70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7ED40C1A8D5C2D006C6B70 /* ViewController.swift */; };
 		9F7ED4101A8D5C2D006C6B70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F7ED40E1A8D5C2D006C6B70 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		495C91331A8D626500817E55 /* StretchableUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StretchableUITextField.swift; sourceTree = "<group>"; };
 		9F7ED4051A8D5C2D006C6B70 /* Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Browser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F7ED4091A8D5C2D006C6B70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F7ED40A1A8D5C2D006C6B70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		495C91321A8D622A00817E55 /* uicomponent */ = {
+			isa = PBXGroup;
+			children = (
+				495C91331A8D626500817E55 /* StretchableUITextField.swift */,
+			);
+			name = uicomponent;
+			sourceTree = "<group>";
+		};
 		9F7ED3FC1A8D5C2D006C6B70 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +87,7 @@
 		9F7ED4071A8D5C2D006C6B70 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				495C91321A8D622A00817E55 /* uicomponent */,
 				9F7ED40A1A8D5C2D006C6B70 /* AppDelegate.swift */,
 				9F7ED40C1A8D5C2D006C6B70 /* ViewController.swift */,
 				9F7ED40E1A8D5C2D006C6B70 /* Main.storyboard */,
@@ -213,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F7ED40D1A8D5C2D006C6B70 /* ViewController.swift in Sources */,
+				495C91341A8D626500817E55 /* StretchableUITextField.swift in Sources */,
 				9F7ED40B1A8D5C2D006C6B70 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +353,7 @@
 				INFOPLIST_FILE = Browser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -351,6 +364,7 @@
 				INFOPLIST_FILE = Browser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -407,6 +421,7 @@
 				9F7ED4261A8D5C2E006C6B70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9F7ED4271A8D5C2E006C6B70 /* Build configuration list for PBXNativeTarget "BrowserTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +430,7 @@
 				9F7ED4291A8D5C2E006C6B70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
