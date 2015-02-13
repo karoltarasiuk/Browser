@@ -170,8 +170,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="CGR-KV-Ai8">
                         <nil key="title"/>
-                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="H5f-Rp-aLu" customClass="StretchableUITextField" customModule="Browser" customModuleProvider="target">
-                            <rect key="frame" x="93" y="7" width="352" height="30"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://demos.vg.learnosity.com/assessment/items/itemsapi_inline_browser.php" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" id="H5f-Rp-aLu" customClass="StretchableUITextField" customModule="Browser" customModuleProvider="target">
+                            <rect key="frame" x="16" y="7" width="429" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
