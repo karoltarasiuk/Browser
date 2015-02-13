@@ -10,11 +10,11 @@
 		495C91341A8D626500817E55 /* StretchableUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C91331A8D626500817E55 /* StretchableUITextField.swift */; };
 		495C91371A8D6D1800817E55 /* ExampleApp.html in Resources */ = {isa = PBXBuildFile; fileRef = 495C91361A8D6D1800817E55 /* ExampleApp.html */; };
 		495C913B1A8D6DCF00817E55 /* LRNAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C913A1A8D6DCF00817E55 /* LRNAudioRecorder.swift */; };
-		495C913E1A8D6DF000817E55 /* LRNAudioRecorder_xib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495C913D1A8D6DF000817E55 /* LRNAudioRecorder_xib.xib */; };
 		495C91451A8D702600817E55 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 495C91441A8D702600817E55 /* AVFoundation.framework */; };
 		495C914A1A8D73A400817E55 /* WebViewJavascriptBridge.js.txt in Resources */ = {isa = PBXBuildFile; fileRef = 495C91481A8D73A400817E55 /* WebViewJavascriptBridge.js.txt */; };
 		495C914B1A8D73A400817E55 /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 495C91491A8D73A400817E55 /* WebViewJavascriptBridge.m */; };
 		495C91521A8D75E000817E55 /* ExampleAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495C91511A8D75E000817E55 /* ExampleAppViewController.m */; };
+		495C91551A8D9DF200817E55 /* UtilityExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C91541A8D9DF200817E55 /* UtilityExtension.swift */; };
 		9F7ED40B1A8D5C2D006C6B70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7ED40A1A8D5C2D006C6B70 /* AppDelegate.swift */; };
 		9F7ED40D1A8D5C2D006C6B70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7ED40C1A8D5C2D006C6B70 /* ViewController.swift */; };
 		9F7ED4101A8D5C2D006C6B70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F7ED40E1A8D5C2D006C6B70 /* Main.storyboard */; };
@@ -37,7 +37,6 @@
 		495C91331A8D626500817E55 /* StretchableUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StretchableUITextField.swift; sourceTree = "<group>"; };
 		495C91361A8D6D1800817E55 /* ExampleApp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ExampleApp.html; sourceTree = "<group>"; };
 		495C913A1A8D6DCF00817E55 /* LRNAudioRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LRNAudioRecorder.swift; sourceTree = "<group>"; };
-		495C913D1A8D6DF000817E55 /* LRNAudioRecorder_xib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LRNAudioRecorder_xib.xib; sourceTree = "<group>"; };
 		495C91441A8D702600817E55 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		495C91471A8D73A400817E55 /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
 		495C91481A8D73A400817E55 /* WebViewJavascriptBridge.js.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WebViewJavascriptBridge.js.txt; sourceTree = "<group>"; };
@@ -45,6 +44,7 @@
 		495C914C1A8D73F800817E55 /* Browser-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Browser-Bridging-Header.h"; sourceTree = "<group>"; };
 		495C91501A8D75E000817E55 /* ExampleAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleAppViewController.h; sourceTree = "<group>"; };
 		495C91511A8D75E000817E55 /* ExampleAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleAppViewController.m; sourceTree = "<group>"; };
+		495C91541A8D9DF200817E55 /* UtilityExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityExtension.swift; sourceTree = "<group>"; };
 		9F7ED4051A8D5C2D006C6B70 /* Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Browser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F7ED4091A8D5C2D006C6B70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F7ED40A1A8D5C2D006C6B70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,7 +106,6 @@
 		495C913C1A8D6DD500817E55 /* xib */ = {
 			isa = PBXGroup;
 			children = (
-				495C913D1A8D6DF000817E55 /* LRNAudioRecorder_xib.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -128,6 +127,14 @@
 				495C91511A8D75E000817E55 /* ExampleAppViewController.m */,
 			);
 			name = Testing;
+			sourceTree = "<group>";
+		};
+		495C91531A8D9DD100817E55 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				495C91541A8D9DF200817E55 /* UtilityExtension.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		9F7ED3FC1A8D5C2D006C6B70 = {
@@ -152,6 +159,7 @@
 		9F7ED4071A8D5C2D006C6B70 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				495C91531A8D9DD100817E55 /* Utils */,
 				495C91461A8D73A400817E55 /* WebViewJavascriptBridge */,
 				495C91391A8D6D5700817E55 /* ViewComponent */,
 				495C91381A8D6D4900817E55 /* ViewController */,
@@ -275,7 +283,6 @@
 				9F7ED4151A8D5C2D006C6B70 /* LaunchScreen.xib in Resources */,
 				495C914A1A8D73A400817E55 /* WebViewJavascriptBridge.js.txt in Resources */,
 				9F7ED4121A8D5C2D006C6B70 /* Images.xcassets in Resources */,
-				495C913E1A8D6DF000817E55 /* LRNAudioRecorder_xib.xib in Resources */,
 				495C91371A8D6D1800817E55 /* ExampleApp.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F7ED40D1A8D5C2D006C6B70 /* ViewController.swift in Sources */,
+				495C91551A8D9DF200817E55 /* UtilityExtension.swift in Sources */,
 				495C913B1A8D6DCF00817E55 /* LRNAudioRecorder.swift in Sources */,
 				495C91341A8D626500817E55 /* StretchableUITextField.swift in Sources */,
 				9F7ED40B1A8D5C2D006C6B70 /* AppDelegate.swift in Sources */,

@@ -14,14 +14,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var webView: UIWebView!
     
+    @IBOutlet weak var lrnRecorder: LRNAudioRecorder!
 
     
     override func viewDidLoad() {
         
+        lrnRecorder.initialize()
+        
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
+    @IBAction func testRecord(sender: AnyObject) {
+        lrnRecorder.setupRecorder("testing.mp3")
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
