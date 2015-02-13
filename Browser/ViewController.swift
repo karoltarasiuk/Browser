@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var keyboardIsVisible = false
+    var jsBridge:WebViewJavascriptBridge?
     
     @IBOutlet weak var urlTextField: StretchableUITextField!
     @IBOutlet weak var hideKeyboardButton: UIButton!
@@ -19,9 +20,36 @@ class ViewController: UIViewController {
 
     
     override func viewDidLoad() {
+
+        lrnRecorder.hidden = true
         hideKeyboardButton.hidden = true
         lrnRecorder.initialize()
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        setupJSBridge()
+        return super.viewDidAppear(animated)
+    }
+    
+    func setupJSBridge(){
+        WebViewJavascriptBridge.enableLogging();
+        jsBridge = WebViewJavascriptBridge(forWebView: self.webView!, webViewDelegate: self, handler: { (data, responseCallback) -> Void in
+            println(data)
+            responseCallback("Response for message from ObjC");
+        })
+        
+        jsBridge?.registerHandler("testObjcCallback", handler: { (data, responseCallback) -> Void in
+            println("testObjCallback called \(data)")
+            responseCallback("Response from testObjcCallback")
+        })
+
+        jsBridge?.send("Message to tell that webview has loaded", responseCallback: { (data) -> Void in
+            println("objc got response! \(data)")
+        })
+        
+        jsBridge?.callHandler("testJavascriptHandler", data: ["status":"browser app is ready"])
+        jsBridge?.send("webview has loaded")
     }
 
     @IBAction func testRecord(sender: AnyObject) {
