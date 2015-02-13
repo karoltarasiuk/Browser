@@ -43,8 +43,8 @@ class ViewController: UIViewController {
     }
     
     func loadWebViewUrl(url:NSString) {
-        var nsUrl: NSURL? = NSURL(string: url)
-        var request = NSURLRequest(URL: nsUrl!)
+        let nsUrl: NSURL? = NSURL(string: url)
+        let request = NSURLRequest(URL: nsUrl!)
         webView.loadRequest(request)
     }
     
@@ -62,6 +62,16 @@ class ViewController: UIViewController {
         return false
     }
     
+    func generateUrlFromText(urlString: String) -> String {
+        let doesNotHaveHttpPrefix = !(urlString.hasPrefix("http://") ||
+                                      urlString.hasPrefix("https://"))
+        var url = urlString
+        if (doesNotHaveHttpPrefix) {
+            url = "http://\(urlString)"
+        }
+        return url
+    }
+    
     // add go back function
     
     // add go next function
@@ -70,11 +80,7 @@ class ViewController: UIViewController {
     
     // add reload function
     
-    // auto handle http protocol
-    
     // check if url is valid like missing .com ---> append http://google.com/?q=
-    
-    // select entire url string when focus
     
     // listen to web view change event to reflect change
     
@@ -97,8 +103,12 @@ extension ViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        let url = generateUrlFromText(textField.text)
         textField.resignFirstResponder()
-        loadWebViewUrl(textField.text)
+        keyboardIsVisible = false
+        toggleHideKeyboardButton()
+        textField.text = url
+        loadWebViewUrl(url)
         return false
     }
     
