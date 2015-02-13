@@ -81,9 +81,7 @@ class ViewController: UIViewController {
     // add reload function
     
     // check if url is valid like missing .com ---> append http://google.com/?q=
-    
-    // listen to web view change event to reflect change
-    
+        
     // TODO
     // Import the Javascript library bridge 
     // Send message to record - playback to the page <---> this app
@@ -112,4 +110,17 @@ extension ViewController: UITextFieldDelegate {
         return false
     }
     
+}
+
+extension ViewController: UIWebViewDelegate {
+
+    func webViewDidStartLoad(webView: UIWebView) {
+        let url = webView.request?.URL
+        if let urlString = url?.absoluteString {
+            if !urlString.isEmpty {
+                urlTextField.text = urlString
+            }
+        }
+    }
+
 }
