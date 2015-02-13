@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GRT-CB-vZS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GRT-CB-vZS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -135,9 +135,10 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOJ-m1-2cq">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOJ-m1-2cq">
                                         <rect key="frame" x="542" y="72" width="40" height="30"/>
                                         <state key="normal" title="Close">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -147,9 +148,11 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="qOJ-m1-2cq" secondAttribute="trailing" constant="18" id="I8d-hh-X0U"/>
                                     <constraint firstItem="5KF-p1-mJJ" firstAttribute="leading" secondItem="YiE-e6-qYq" secondAttribute="leading" constant="83" id="Igr-Jn-d5K"/>
                                     <constraint firstItem="5KF-p1-mJJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="YiE-e6-qYq" secondAttribute="top" constant="213" id="Kih-Sn-A7o"/>
                                     <constraint firstItem="ywC-o0-tnU" firstAttribute="top" secondItem="YiE-e6-qYq" secondAttribute="top" constant="213" id="MnJ-bA-abI"/>
+                                    <constraint firstItem="qOJ-m1-2cq" firstAttribute="top" secondItem="YiE-e6-qYq" secondAttribute="top" constant="72" id="OiS-1b-nRj"/>
                                     <constraint firstAttribute="trailing" secondItem="ywC-o0-tnU" secondAttribute="trailing" constant="82" id="Sca-d8-W7R"/>
                                     <constraint firstItem="5KF-p1-mJJ" firstAttribute="top" secondItem="YiE-e6-qYq" secondAttribute="top" constant="109" id="VUH-ur-9zL"/>
                                     <constraint firstItem="M3l-4S-S7N" firstAttribute="top" secondItem="YiE-e6-qYq" secondAttribute="top" constant="129" id="a4h-f1-0wV"/>
