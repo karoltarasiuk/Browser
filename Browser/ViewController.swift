@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func testRecord(sender: AnyObject) {
-        lrnRecorder.setupRecorder("testing.mp3")
+        lrnRecorder.setupRecorder("testing.m4a")
     }
     
     @IBAction func blurUrlTextField(sender: StretchableUITextField) {

@@ -14,7 +14,7 @@ class LRNAudioRecorder: UIView {
         AVFormatIDKey: kAudioFormatAppleLossless,
         AVEncoderAudioQualityKey: AVAudioQuality.Max.rawValue,
         AVEncoderBitRateKey: 320000,
-        AVNumberOfChannelsKey: 2,
+        AVNumberOfChannelsKey: 1,
         AVSampleRateKey: 44100.0
     ]
 
@@ -56,6 +56,18 @@ class LRNAudioRecorder: UIView {
         var docsDir: AnyObject = dirPaths[0]
         var soundFilePath = docsDir.stringByAppendingPathComponent(fileName);
         self.soundFileURL = NSURL(fileURLWithPath: soundFilePath)
+
+        // Do we need this
+        var format = NSDateFormatter()
+        format.dateFormat="yyyy-MM-dd-HH-mm-ss"
+        var currentFileName = "recording-\(format.stringFromDate(NSDate())).m4a"
+        //---------------
+
+        let filemanager = NSFileManager.defaultManager()
+        if filemanager.fileExistsAtPath(soundFilePath) {
+            // probably won't happen. want to do something about it?
+            println("sound exists")
+        }
         
         //Initialize the audio recorder
         var error: NSError?
@@ -70,7 +82,7 @@ class LRNAudioRecorder: UIView {
         
         if let e = error {
             println("Failed to initialized recorder \(e.localizedDescription)")
-            return false
+
         } else {
             recorder.delegate = self;
             recorder.meteringEnabled = true
@@ -92,7 +104,7 @@ class LRNAudioRecorder: UIView {
                     self.meterTimer = NSTimer.scheduledTimerWithTimeInterval(
                         0.1,
                         target: self,
-                        selector: "updateAudioMeter",
+                        selector: "updateAudioMeter:",
                         userInfo: nil,
                         repeats: true)
                 } else {
@@ -104,7 +116,7 @@ class LRNAudioRecorder: UIView {
         }
     }
     
-    private func updateAudioMeter(timer:NSTimer) {
+    func updateAudioMeter(timer:NSTimer) {
         if recorder.recording {
             let dFormat = "%02d"
             let min:Int = Int(recorder.currentTime / 60)
@@ -151,6 +163,44 @@ class LRNAudioRecorder: UIView {
             recordButton.setTitle("Continue recording", forState: UIControlState.Normal)
             recorder.pause()
         }
+    }
+    
+    @IBAction func playback() {
+        println("playing")
+        var error: NSError?
+        // recorder might be nil
+        // self.player = AVAudioPlayer(contentsOfURL: recorder.url, error: &error)
+        self.player = AVAudioPlayer(contentsOfURL: soundFileURL!, error: &error)
+        if player == nil {
+            if let e = error {
+                println(e.localizedDescription)
+            }
+        }
+        player.delegate = self
+        player.prepareToPlay()
+        player.volume = 1.0
+        player.play()
+    }
+    
+    @IBAction func stop(sender: UIButton) {
+        println("stop")
+        recorder.stop()
+        meterTimer.invalidate()
+        
+        recordButton.setTitle("Record", forState:.Normal)
+        let session:AVAudioSession = AVAudioSession.sharedInstance()
+        var error: NSError?
+        if !session.setActive(false, error: &error) {
+            println("could not make session inactive")
+            if let e = error {
+                println(e.localizedDescription)
+                return
+            }
+        }
+        playButton.enabled = true
+        stopButton.enabled = false
+        recordButton.enabled = true
+        //recorder = nil
     }
     
     // -------------------

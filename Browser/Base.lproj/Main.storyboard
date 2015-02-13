@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GRT-CB-vZS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GRT-CB-vZS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -52,6 +52,9 @@
                                                 <state key="normal" title="Play">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="playback" destination="YiE-e6-qYq" eventType="touchUpInside" id="5DN-cB-04g"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kg5-Hi-2FF">
                                                 <rect key="frame" x="122" y="90" width="66" height="30"/>
@@ -82,6 +85,9 @@
                                         <state key="normal" title="Stop">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="stop:" destination="YiE-e6-qYq" eventType="touchUpInside" id="hWr-k7-WP4"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3l-4S-S7N">
                                         <rect key="frame" x="45" y="289" width="521" height="21"/>
@@ -188,8 +194,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="lrnRecorder" destination="YiE-e6-qYq" id="4qg-oH-tcg"/>
                         <outlet property="hideKeyboardButton" destination="NLg-kn-8u7" id="HSt-Bw-6Qw"/>
+                        <outlet property="lrnRecorder" destination="YiE-e6-qYq" id="4qg-oH-tcg"/>
                         <outlet property="urlTextField" destination="H5f-Rp-aLu" id="Wzr-OX-hzb"/>
                         <outlet property="webView" destination="gvG-bX-Zfj" id="WNl-9s-FJy"/>
                     </connections>
