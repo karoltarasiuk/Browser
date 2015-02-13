@@ -8,46 +8,54 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
-
+class ViewController: UIViewController {
+    
+    var keyboardIsVisible = false
+    
     @IBOutlet weak var urlTextField: StretchableUITextField!
-    
+    @IBOutlet weak var hideKeyboardButton: UIButton!
     @IBOutlet weak var webView: UIWebView!
-    
     @IBOutlet weak var lrnRecorder: LRNAudioRecorder!
 
     
     override func viewDidLoad() {
-        
+        hideKeyboardButton.hidden = true
         lrnRecorder.initialize()
-        
         super.viewDidLoad()
     }
 
     @IBAction func testRecord(sender: AnyObject) {
         lrnRecorder.setupRecorder("testing.mp3")
     }
+    
+    @IBAction func blurUrlTextField(sender: StretchableUITextField) {
+        hideKeyboard()
+    }
+    
+    @IBAction func hideKeyboard(sender: AnyObject) {
+        hideKeyboard()
+        toggleHideKeyboardButton()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func loadWebViewUrl(url:NSString) {
         var nsUrl: NSURL? = NSURL(string: url)
         var request = NSURLRequest(URL: nsUrl!)
-        self.webView.loadRequest(request)
+        webView.loadRequest(request)
     }
     
-//    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-//        //select the entire text
-//        return false
-//    }
+    func hideKeyboard() {
+        urlTextField.resignFirstResponder()
+        keyboardIsVisible = false
+        toggleHideKeyboardButton()
+    }
     
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        loadWebViewUrl(textField.text)
-        return false
+    func toggleHideKeyboardButton() {
+        hideKeyboardButton.hidden = !keyboardIsVisible
     }
     
     func isValidProtocol(urlString: String) -> Bool {
@@ -78,3 +86,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
 }
 
+extension ViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        let start = textField.beginningOfDocument
+        let end = textField.endOfDocument
+        textField.selectedTextRange = textField.textRangeFromPosition(start, toPosition: end)
+        keyboardIsVisible = true
+        toggleHideKeyboardButton()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        loadWebViewUrl(textField.text)
+        return false
+    }
+    
+}
