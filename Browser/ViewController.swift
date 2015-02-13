@@ -32,9 +32,27 @@ class ViewController: UIViewController {
         hideKeyboard()
     }
     
+    @IBAction func goBack(sender: UIBarButtonItem) {
+        webView.goBack()
+        updateUrlText()
+    }
+    
+    @IBAction func goForward(sender: UIBarButtonItem) {
+        webView.goForward()
+        updateUrlText()
+    }
+    
     @IBAction func hideKeyboard(sender: AnyObject) {
         hideKeyboard()
         toggleHideKeyboardButton()
+    }
+    
+    @IBAction func reload(sender: UIBarButtonItem) {
+        webView.reload()
+    }
+    
+    @IBAction func stopLoading(sender: UIBarButtonItem) {
+        webView.stopLoading()
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,14 +90,15 @@ class ViewController: UIViewController {
         return url
     }
     
-    // add go back function
-    
-    // add go next function
-    
-    // add stop function
-    
-    // add reload function
-    
+    func updateUrlText() {
+        let url = webView.request?.URL
+        if let urlString = url?.absoluteString {
+            if !urlString.isEmpty {
+                urlTextField.text = urlString
+            }
+        }
+    }
+
     // check if url is valid like missing .com ---> append http://google.com/?q=
         
     // TODO
@@ -115,12 +134,11 @@ extension ViewController: UITextFieldDelegate {
 extension ViewController: UIWebViewDelegate {
 
     func webViewDidStartLoad(webView: UIWebView) {
-        let url = webView.request?.URL
-        if let urlString = url?.absoluteString {
-            if !urlString.isEmpty {
-                urlTextField.text = urlString
-            }
-        }
+        updateUrlText()
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        updateUrlText()
     }
 
 }
