@@ -38,6 +38,8 @@ class LRNAudioRecorder: UIView {
         super.init(coder: aDecoder)
     }
     
+    var currentFileName:String = ""
+    
     // ------------------
     // Public methods
     // ------------------
@@ -58,10 +60,12 @@ class LRNAudioRecorder: UIView {
         self.soundFileURL = NSURL(fileURLWithPath: soundFilePath)
 
         // Do we need this
-        var format = NSDateFormatter()
-        format.dateFormat="yyyy-MM-dd-HH-mm-ss"
-        var currentFileName = "recording-\(format.stringFromDate(NSDate())).m4a"
+//        var format = NSDateFormatter()
+//        format.dateFormat="yyyy-MM-dd-HH-mm-ss"
+//        var currentFileName = "recording-\(format.stringFromDate(NSDate())).m4a"
         //---------------
+        
+        currentFileName = "" + fileName
 
         let filemanager = NSFileManager.defaultManager()
         if filemanager.fileExistsAtPath(soundFilePath) {
@@ -90,6 +94,22 @@ class LRNAudioRecorder: UIView {
         }
         
         return true
+    }
+    
+    func destroy () {
+        if recorder != nil {
+            if recorder.recording {
+                recorder.stop()
+            }
+            
+            recorder = nil
+            
+            if let pl = player {
+                player.stop()
+                player = nil
+            }
+            
+        }
     }
     
     func recordWithPermission(permission:Bool) {

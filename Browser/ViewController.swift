@@ -12,15 +12,23 @@ class ViewController: UIViewController {
     
     var keyboardIsVisible = false
     var jsBridge:WebViewJavascriptBridge?
+    var _responseCallback:WVJBResponseCallback?
     
     @IBOutlet weak var urlTextField: StretchableUITextField!
     @IBOutlet weak var hideKeyboardButton: UIButton!
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var lrnRecorder: LRNAudioRecorder!
 
+    @IBAction func closeAudio(sender: AnyObject) {
+        showRecorder(false)
+        jsBridge?.send("webview has loaded")
+        if let callback = self._responseCallback {
+            callback("Has recorded: \(self.lrnRecorder.currentFileName)")
+        }
+    }
     
     override func viewDidLoad() {
-
+        showRecorder(true);
         lrnRecorder.hidden = true
         hideKeyboardButton.hidden = true
         lrnRecorder.initialize()
@@ -29,24 +37,33 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         setupJSBridge()
+        self.loadWebViewUrl(self.urlTextField.text)
         return super.viewDidAppear(animated)
+    }
+    
+    func showRecorder(value:Bool) {
+        if value {
+            var format = NSDateFormatter()
+            format.dateFormat="yyyy-MM-dd-HH-mm-ss"
+            var fileName = "recording-\(format.stringFromDate(NSDate())).m4a"
+            lrnRecorder.setupRecorder(fileName)
+        } else {
+            lrnRecorder.destroy()
+
+        }
+        lrnRecorder.hidden = !value;
     }
     
     func setupJSBridge(){
         WebViewJavascriptBridge.enableLogging();
         jsBridge = WebViewJavascriptBridge(forWebView: self.webView!, webViewDelegate: self, handler: { (data, responseCallback) -> Void in
+            self._responseCallback = responseCallback
+            println("------------------")
             println(data)
-            responseCallback("Response for message from ObjC");
+            self.showRecorder(true)
+            println("------------------")
         })
         
-        jsBridge?.registerHandler("testObjcCallback", handler: { (data, responseCallback) -> Void in
-            println("testObjCallback called \(data)")
-            responseCallback("Response from testObjcCallback")
-        })
-
-        jsBridge?.send("Message to tell that webview has loaded", responseCallback: { (data) -> Void in
-            println("objc got response! \(data)")
-        })
         
         jsBridge?.callHandler("testJavascriptHandler", data: ["status":"browser app is ready"])
         jsBridge?.send("webview has loaded")

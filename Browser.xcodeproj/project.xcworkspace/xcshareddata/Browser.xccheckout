@@ -5,13 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>F6FEE681-B744-467E-8085-FFB6903B69EE</string>
+	<string>697BCDEF-2EB0-47EA-A2E3-3C983AFDD34F</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Browser</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>6F342EFB5DB76993E43B55F12FA816443F587735</key>
-		<string>github.com:karoltarasiuk/Browser.git</string>
+		<string>https://github.com/karoltarasiuk/Browser.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Browser.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>github.com:karoltarasiuk/Browser.git</string>
+	<string>https://github.com/karoltarasiuk/Browser.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
